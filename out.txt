@@ -1,0 +1,4 @@
+3
+Novosibirck, Mira, 85, 64
+Omsk, Pushkin, 2, 13
+Moscow, Stroitelei, 34, 12
