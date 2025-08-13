@@ -5,11 +5,18 @@
 
 class Address
 {
-public:
+private:
     std::string City;
     std::string Street;
     int House;
     int Apartment;
+
+    public:
+
+    void set_City(std::string name_City) {City = name_City; } // setter
+    void set_Street(std::string name_Street) {Street = name_Street;}
+    void set_House(int num_House) { House = num_House;}
+    void set_Apartment(int num_Apartment) {Apartment = num_Apartment;}
 
     std::string get_output_address()
     {
@@ -24,14 +31,16 @@ public:
 
 int main(int argc, char** argv)
 {
-    //setlocale (LC_ALL, "rus");
-    //SetConsoleOutputCP(1251);
-    // std::ofstream ofile {"out.txt", std::ofstream::app};
+
     std::ifstream ifile("in.txt");
     std::ofstream ofile("out.txt");
 
       int number_of_addresses{};
 
+      std::string City_from_File{};
+      std::string Street_from_File{};
+      int House_from_File{};
+      int Aps_from_File{};
 
     if (ifile.is_open())
         {
@@ -41,10 +50,10 @@ int main(int argc, char** argv)
 
         for (int i{}; i < number_of_addresses; i++)
            {
-               ifile >> add[i].City;      //  std::cout << add.City;      std::cout << std::endl;
-               ifile >> add[i].Street;    //  std::cout << add.Street;    std::cout << std::endl;
-               ifile >> add[i].House;    //  std::cout << add.House;     std::cout << std::endl;
-               ifile >> add[i].Apartment;// std::cout << add.Apartment; std::cout << std::endl;
+               ifile >> City_from_File;    add[i].set_City(City_from_File);      //  std::cout << add.City;      std::cout << std::endl;
+               ifile >> Street_from_File;  add[i].set_Street(Street_from_File);    //  std::cout << add.Street;    std::cout << std::endl;
+               ifile >> House_from_File;   add[i].set_House(House_from_File);    //  std::cout << add.House;     std::cout << std::endl;
+               ifile >> Aps_from_File;     add[i].set_Apartment(Aps_from_File);// std::cout << add.Apartment; std::cout << std::endl;
                std::cout << add[i].get_output_address();
                std::cout << std::endl;
 
